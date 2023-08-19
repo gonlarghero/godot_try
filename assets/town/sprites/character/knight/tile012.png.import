@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgb17e4tluuy3"
-path="res://.godot/imported/carrot..png-ea6c5104bcb79079bdcc3ed8914b6a4c.ctex"
+uid="uid://rk0xvlibg54o"
+path="res://.godot/imported/tile012.png-8d7dd17226bf0b545b9c9609af522097.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/town/sprites/character/carrot..png"
-dest_files=["res://.godot/imported/carrot..png-ea6c5104bcb79079bdcc3ed8914b6a4c.ctex"]
+source_file="res://assets/town/sprites/character/knight/tile012.png"
+dest_files=["res://.godot/imported/tile012.png-8d7dd17226bf0b545b9c9609af522097.ctex"]
 
 [params]
 
