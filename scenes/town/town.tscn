@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckx81hmu1yrpu"]
+
+[ext_resource type="PackedScene" uid="uid://k8nlrynw4ent" path="res://scenes/player/player.tscn" id="1_d63mg"]
+[ext_resource type="PackedScene" uid="uid://yvtnmuwfq41x" path="res://scenes/objects/bush/bush.tscn" id="2_6pl4e"]
+
+[node name="Town" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_d63mg")]
+
+[node name="StaticBody2D" parent="." instance=ExtResource("2_6pl4e")]
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("2_6pl4e")]
+position = Vector2(123, 138)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("2_6pl4e")]
+position = Vector2(205, 62)
