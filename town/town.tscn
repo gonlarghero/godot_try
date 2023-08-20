@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://ckx81hmu1yrpu"]
 
-[ext_resource type="Script" path="res://player/Player.gd" id="2_8xasl"]
+[ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_8fkx4"]
 [ext_resource type="Texture2D" uid="uid://dggs01mc8jbwc" path="res://assets/town/sprites/knight/tile009.png" id="3_obcr0"]
 [ext_resource type="Texture2D" uid="uid://k4827rofioxq" path="res://assets/town/sprites/knight/tile010.png" id="4_wc4dm"]
 [ext_resource type="Texture2D" uid="uid://ch8geg42cfsy5" path="res://assets/town/sprites/knight/tile011.png" id="5_sah4k"]
@@ -90,7 +90,7 @@ height = 100.0
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(59, 77)
-script = ExtResource("2_8xasl")
+script = ExtResource("1_8fkx4")
 metadata/_edit_group_ = true
 
 [node name="player_sprite" type="AnimatedSprite2D" parent="Player"]
