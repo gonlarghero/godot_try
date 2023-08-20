@@ -7,6 +7,7 @@ const FRICTION = 700;
 
 @onready var animationPlayer = $AnimationPlayer;
 @onready var animationTree = $AnimationTree;
+@onready var animationState = animationTree.get("parameters/playback")
 
 func _ready():
 	borderLimit = get_viewport_rect().size
@@ -19,29 +20,13 @@ func _physics_process(delta):
 	if(input_vector != Vector2.ZERO):
 		animationTree.set("parameters/Idle/blend_position",input_vector);
 		animationTree.set("parameters/Run/blend_position",input_vector);
+		animationState.travel("Run");
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta);
 	else:
+		animationState.travel("Idle");
 		velocity = velocity.move_toward(Vector2.ZERO,FRICTION * delta);
 	
 	position.x = clamp(position.x, 0, borderLimit.x)
 	position.y = clamp(position.y, 0, borderLimit.y)
 	move_and_slide();
 	
-func _animation_change():
-	if velocity.x != 0:
-		if velocity.x < 0:
-			$player_sprite.animation = "left"
-			$player_sprite.play("left")
-		else:
-			$player_sprite.animation = "right"
-			$player_sprite.play("right")
-	elif velocity.y != 0:
-		if velocity.y < 0:
-			$player_sprite.animation = "up"
-			$player_sprite.play("up")
-		else:
-			$player_sprite.animation = "down"
-			$player_sprite.play("down")
-	else:
-		$player_sprite.animation = "idle"
-		$player_sprite.play("idle")	

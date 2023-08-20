@@ -210,11 +210,13 @@ animation = &"run_up"
 blend_point_0/node = SubResource("AnimationNodeAnimation_bodn0")
 blend_point_0/pos = Vector2(-1, 0)
 blend_point_1/node = SubResource("AnimationNodeAnimation_x2v48")
-blend_point_1/pos = Vector2(0, 1)
+blend_point_1/pos = Vector2(0, 1.1)
 blend_point_2/node = SubResource("AnimationNodeAnimation_g8mhi")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_nidv2")
-blend_point_3/pos = Vector2(0, -1)
+blend_point_3/pos = Vector2(0, -1.1)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4rdcl"]
@@ -240,6 +242,7 @@ position = Vector2(3, -26)
 scale = Vector2(3, 3)
 texture = ExtResource("2_n1y3a")
 hframes = 60
+frame = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
@@ -256,4 +259,4 @@ tree_root = SubResource("AnimationNodeStateMachine_u2gsx")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/Idle/blend_position = Vector2(0, 0)
-parameters/Run/blend_position = Vector2(0, 0)
+parameters/Run/blend_position = Vector2(-0.3088, 0.275109)
