@@ -227,6 +227,7 @@ blend_mode = 1
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_u2gsx"]
+states/End/position = Vector2(600, 89)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_86xp7")
 states/Idle/position = Vector2(355, 89)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_eht6j")
@@ -242,7 +243,7 @@ position = Vector2(3, -26)
 scale = Vector2(3, 3)
 texture = ExtResource("2_n1y3a")
 hframes = 60
-frame = 15
+frame = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
