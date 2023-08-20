@@ -83,26 +83,31 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvtep"]
-radius = 20.0
-height = 100.0
+radius = 18.0
+height = 58.0
 
 [node name="Town" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(59, 77)
+position = Vector2(56, 66)
 script = ExtResource("1_8fkx4")
-metadata/_edit_group_ = true
 
 [node name="player_sprite" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(-10, -10)
 sprite_frames = SubResource("SpriteFrames_appos")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(7, 0)
+position = Vector2(-2, -1)
 shape = SubResource("CapsuleShape2D_gvtep")
 metadata/_edit_group_ = true
 
-[node name="Bush" type="Sprite2D" parent="."]
-position = Vector2(144, 68)
-scale = Vector2(1.4375, 1.5625)
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(122, 75)
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-5, -12, -2, -14, 3, -14, 11, -7, 14, -2, 14, 5, 12, 10, 5, 13, -3, 13, -10, 11, -14, 6, -14, -1, -12, -5, -8, -9)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
 texture = ExtResource("14_bevu8")
