@@ -82,19 +82,21 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvtep"]
-radius = 18.0
-height = 58.0
+radius = 16.0
+height = 50.0
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(56, 66)
+position = Vector2(30, 75)
 script = ExtResource("1_3omil")
+metadata/_edit_group_ = true
 
 [node name="player_sprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(-10, -10)
+position = Vector2(0, -20)
 sprite_frames = SubResource("SpriteFrames_appos")
-animation = &"idle"
+animation = &"down"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -1)
+rotation = -1.5708
 shape = SubResource("CapsuleShape2D_gvtep")
+debug_color = Color(0.831373, 0.168627, 0.858824, 0.419608)
 metadata/_edit_group_ = true

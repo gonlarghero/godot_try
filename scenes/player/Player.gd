@@ -3,8 +3,8 @@ extends CharacterBody2D
 var map_limit = preload("res://commons/map/limit.gd").new()		
 
 const MAX_SPEED = 200
-const ACCELERATION = 700
-const FRICTION = 700
+const ACCELERATION = 1000
+const FRICTION = 1000
 
 func _ready():
 	map_limit.init_limit(self)

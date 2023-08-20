@@ -4,13 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://yvtnmuwfq41x" path="res://scenes/objects/bush/bush.tscn" id="2_6pl4e"]
 
 [node name="Town" type="Node2D"]
+y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_d63mg")]
 
 [node name="StaticBody2D" parent="." instance=ExtResource("2_6pl4e")]
+position = Vector2(224, 135)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("2_6pl4e")]
 position = Vector2(123, 138)
 
 [node name="StaticBody2D3" parent="." instance=ExtResource("2_6pl4e")]
-position = Vector2(205, 62)
+position = Vector2(304, 50)
