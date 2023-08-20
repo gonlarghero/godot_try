@@ -48,3 +48,8 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# Hidden files created by mac and git hooks
+.git/hooks/*
+.pre-commit-config.yaml
+.DS_Store
