@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lxhap2kajo50"
-path="res://.godot/imported/BitMasks.png-38936ce4746b3012131547c904299dfc.ctex"
+uid="uid://cf2jqrai503hf"
+path="res://.godot/imported/GrassEffect.png-97841cc5aa3b56330f52486d68ebef5a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://documentation/BitMasks.png"
-dest_files=["res://.godot/imported/BitMasks.png-38936ce4746b3012131547c904299dfc.ctex"]
+source_file="res://assets/effects/GrassEffect.png"
+dest_files=["res://.godot/imported/GrassEffect.png-97841cc5aa3b56330f52486d68ebef5a.ctex"]
 
 [params]
 

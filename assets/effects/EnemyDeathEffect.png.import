@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lxhap2kajo50"
-path="res://.godot/imported/BitMasks.png-38936ce4746b3012131547c904299dfc.ctex"
+uid="uid://biguoyfc74f0y"
+path="res://.godot/imported/EnemyDeathEffect.png-54b19977ec9603bf43cce771b1c89513.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://documentation/BitMasks.png"
-dest_files=["res://.godot/imported/BitMasks.png-38936ce4746b3012131547c904299dfc.ctex"]
+source_file="res://assets/effects/EnemyDeathEffect.png"
+dest_files=["res://.godot/imported/EnemyDeathEffect.png-54b19977ec9603bf43cce771b1c89513.ctex"]
 
 [params]
 
