@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://k8nlrynw4ent"]
+[gd_scene load_steps=28 format=3 uid="uid://k8nlrynw4ent"]
 
 [ext_resource type="Script" path="res://scenes/player/Player.gd" id="1_3omil"]
 [ext_resource type="Texture2D" uid="uid://biguc0dqnk58p" path="res://assets/town/sprites/Player/Player.png" id="2_lc2ga"]
@@ -213,9 +213,6 @@ min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8jkc6"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ugusp"]
 advance_mode = 2
 
@@ -232,7 +229,7 @@ states/Idle/position = Vector2(351.5, 100.086)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_r2juk")
 states/Run/position = Vector2(516.5, 98.5625)
 states/Start/position = Vector2(217, 100.391)
-transitions = ["Run", "End", SubResource("AnimationNodeStateMachineTransition_8jkc6"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ugusp"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_uehms"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_4sowa")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ugusp"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_uehms"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_4sowa")]
 graph_offset = Vector2(102, 10)
 
 [node name="Player" type="CharacterBody2D"]
@@ -243,7 +240,7 @@ metadata/_edit_group_ = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_lc2ga")
 hframes = 60
-frame = 12
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
