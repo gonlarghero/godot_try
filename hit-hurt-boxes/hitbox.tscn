@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cxp7hho62dyqh"]
+
+[node name="Hitbox" type="Area2D"]
+
+[node name="HitboxCollision" type="CollisionPolygon2D" parent="."]
+light_mask = 0
+visibility_layer = 0

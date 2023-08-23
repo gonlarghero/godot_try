@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://blqhl6uwcq6ko"]
+
+[node name="HurtBox" type="Area2D"]
+light_mask = 8
+visibility_layer = 0
+
+[node name="HurtCollision" type="CollisionPolygon2D" parent="."]

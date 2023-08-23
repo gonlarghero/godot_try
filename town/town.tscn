@@ -847,6 +847,7 @@ layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array()
 
 [node name="TileMap 32" type="TileMap" parent="."]
+visibility_layer = 0
 y_sort_enabled = true
 tile_set = SubResource("TileSet_kax4j")
 format = 2
@@ -864,3 +865,12 @@ position = Vector2(92, 265)
 
 [node name="grass2" parent="." instance=ExtResource("5_pxme2")]
 position = Vector2(256, 185)
+
+[node name="grass3" parent="." instance=ExtResource("5_pxme2")]
+position = Vector2(388, 259)
+
+[node name="grass4" parent="." instance=ExtResource("5_pxme2")]
+position = Vector2(501, 123)
+
+[node name="grass5" parent="." instance=ExtResource("5_pxme2")]
+position = Vector2(528, 265)

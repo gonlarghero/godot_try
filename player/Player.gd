@@ -20,7 +20,7 @@ func _ready():
 	borderLimit = get_viewport_rect().size;
 	animationTree.active = true;
 	
-func _process(delta):
+func _physics_process(delta):
 	match state:
 		MOVE: 
 			move_state(delta);
