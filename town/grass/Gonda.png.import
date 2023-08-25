@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lxhap2kajo50"
-path="res://.godot/imported/BitMasks.png-43c706017be15a5a125da8dc37813547.ctex"
+uid="uid://decnqy6vv5k6w"
+path="res://.godot/imported/Gonda.png-1a4041972f785d434b90ae7a4870d997.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Documentation/BitMasks.png"
-dest_files=["res://.godot/imported/BitMasks.png-43c706017be15a5a125da8dc37813547.ctex"]
+source_file="res://town/grass/Gonda.png"
+dest_files=["res://.godot/imported/Gonda.png-1a4041972f785d434b90ae7a4870d997.ctex"]
 
 [params]
 
