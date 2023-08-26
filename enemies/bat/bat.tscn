@@ -1,0 +1,69 @@
+[gd_scene load_steps=10 format=3 uid="uid://ctd77meanvi2"]
+
+[ext_resource type="Texture2D" uid="uid://bg1mmrycf1hhp" path="res://assets/enemies/Bat.png" id="1_a3q1p"]
+[ext_resource type="Texture2D" uid="uid://cjqlkqhkync6f" path="res://assets/shadows/SmallShadow.png" id="2_bcywt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyonp"]
+atlas = ExtResource("1_a3q1p")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x55jg"]
+atlas = ExtResource("1_a3q1p")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mp1uf"]
+atlas = ExtResource("1_a3q1p")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tlw2"]
+atlas = ExtResource("1_a3q1p")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yuvix"]
+atlas = ExtResource("1_a3q1p")
+region = Rect2(64, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_icdun"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyonp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x55jg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mp1uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tlw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yuvix")
+}],
+"loop": true,
+"name": &"bat_fly",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_roi58"]
+radius = 3.0
+height = 10.0
+
+[node name="bat" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 16
+metadata/_edit_group_ = true
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -15)
+sprite_frames = SubResource("SpriteFrames_icdun")
+animation = &"bat_fly"
+autoplay = "bat_fly"
+
+[node name="Shadow" type="Sprite2D" parent="."]
+texture = ExtResource("2_bcywt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_roi58")
