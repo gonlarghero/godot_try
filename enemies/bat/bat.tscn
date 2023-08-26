@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctd77meanvi2"]
+[gd_scene load_steps=12 format=3 uid="uid://ctd77meanvi2"]
 
 [ext_resource type="Texture2D" uid="uid://bg1mmrycf1hhp" path="res://assets/enemies/Bat.png" id="1_a3q1p"]
+[ext_resource type="Script" path="res://enemies/bat/bat.gd" id="1_c6a0w"]
 [ext_resource type="Texture2D" uid="uid://cjqlkqhkync6f" path="res://assets/shadows/SmallShadow.png" id="2_bcywt"]
+[ext_resource type="PackedScene" uid="uid://blqhl6uwcq6ko" path="res://hit-hurt-boxes/hurtbox.tscn" id="3_i713p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pyonp"]
 atlas = ExtResource("1_a3q1p")
@@ -53,13 +55,15 @@ height = 10.0
 [node name="bat" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 collision_layer = 16
-metadata/_edit_group_ = true
+script = ExtResource("1_c6a0w")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = SubResource("SpriteFrames_icdun")
 animation = &"bat_fly"
 autoplay = "bat_fly"
+frame = 1
+frame_progress = 0.129005
 
 [node name="Shadow" type="Sprite2D" parent="."]
 texture = ExtResource("2_bcywt")
@@ -67,3 +71,15 @@ texture = ExtResource("2_bcywt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_roi58")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_i713p")]
+light_mask = 1
+visibility_layer = 1
+collision_layer = 8
+
+[node name="HurtCollision" parent="HurtBox" index="0"]
+polygon = PackedVector2Array(-8, -14.5, -8, -22, -3, -26, 3.5, -26, 8.5, -22.5, 8.5, -14.5, 3, -11, -2.5, -11)
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+
+[editable path="HurtBox"]
