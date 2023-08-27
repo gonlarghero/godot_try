@@ -1,6 +1,6 @@
 extends Node2D
 
-func _on_hurt_box_area_entered(area):
+func _on_hurt_box_area_entered(_area):
 	_create_grass_effect();
 	queue_free();
 
