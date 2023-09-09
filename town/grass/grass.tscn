@@ -1,27 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://c5uh4o7uet2sh"]
+[gd_scene load_steps=5 format=3 uid="uid://c5uh4o7uet2sh"]
 
 [ext_resource type="Script" path="res://town/grass/grass.gd" id="1_gu8nb"]
 [ext_resource type="Texture2D" uid="uid://decnqy6vv5k6w" path="res://town/grass/Gonda.png" id="2_8bv72"]
-[ext_resource type="PackedScene" uid="uid://blqhl6uwcq6ko" path="res://hit-hurt-boxes/hurtbox.tscn" id="3_jsnxw"]
+[ext_resource type="PackedScene" uid="uid://bntjcct5xl0ma" path="res://hit-hurt-boxes/hurt_box.tscn" id="3_hhrtc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umc0b"]
+size = Vector2(16, 61)
 
 [node name="grass" type="Node2D"]
-position = Vector2(5, 3)
+position = Vector2(8, 8)
 script = ExtResource("1_gu8nb")
 
 [node name="Grass" type="Sprite2D" parent="."]
-position = Vector2(-9.59334, -9.59078)
+position = Vector2(-25, -20)
 scale = Vector2(0.102832, 0.123152)
 texture = ExtResource("2_8bv72")
 centered = false
 offset = Vector2(-8, -8)
 
-[node name="HurtBox" parent="." instance=ExtResource("3_jsnxw")]
-position = Vector2(3, 2)
+[node name="HurtBox" parent="." instance=ExtResource("3_hhrtc")]
+collision_layer = 8
+collision_mask = 2
 
-[node name="HurtCollision" parent="HurtBox" index="0"]
-position = Vector2(-21, 8)
-scale = Vector2(1.08036, 0.544643)
-polygon = PackedVector2Array(32.3967, 9.18033, 26.843, 12.8525, 20.3636, 7.34426, 22.2149, -11.0164, 32.3967, -11.0164)
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, 9.5)
+shape = SubResource("RectangleShape2D_umc0b")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 

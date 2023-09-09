@@ -1,8 +1,8 @@
-[gd_scene load_steps=51 format=3 uid="uid://7ng2wdnkjh02"]
+[gd_scene load_steps=52 format=3 uid="uid://7ng2wdnkjh02"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_r3r7w"]
 [ext_resource type="Texture2D" uid="uid://bafe6ngkka1nv" path="res://assets/sprites/character/player/Player.png" id="2_n1y3a"]
-[ext_resource type="PackedScene" uid="uid://cxp7hho62dyqh" path="res://hit-hurt-boxes/hitbox.tscn" id="4_o3fxu"]
+[ext_resource type="PackedScene" uid="uid://e6lwvqjeqnil" path="res://hit-hurt-boxes/hitbox.tscn" id="4_o3fxu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvtep"]
 radius = 3.99999
@@ -25,7 +25,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Node2D:rotation")
+tracks/1/path = NodePath("../Marker2D:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -37,14 +37,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Node2D/SwordHitbox/HitboxCollision:disabled")
+tracks/2/path = NodePath("../Marker2D/hitbox/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_fu4hr"]
@@ -79,7 +79,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Node2D:rotation")
+tracks/2/path = NodePath("../Marker2D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -91,7 +91,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Node2D/SwordHitbox/HitboxCollision:disabled")
+tracks/3/path = NodePath("../Marker2D/hitbox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -133,7 +133,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Node2D:rotation")
+tracks/2/path = NodePath("../Marker2D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -145,7 +145,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Node2D/SwordHitbox/HitboxCollision:disabled")
+tracks/3/path = NodePath("../Marker2D/hitbox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -187,7 +187,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Node2D:rotation")
+tracks/2/path = NodePath("../Marker2D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -199,7 +199,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Node2D/SwordHitbox/HitboxCollision:disabled")
+tracks/3/path = NodePath("../Marker2D/hitbox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -241,7 +241,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../Node2D:rotation")
+tracks/2/path = NodePath("../Marker2D:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -253,7 +253,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../Node2D/SwordHitbox/HitboxCollision:disabled")
+tracks/3/path = NodePath("../Marker2D/hitbox/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -665,25 +665,26 @@ states/Run/node = SubResource("AnimationNodeBlendSpace2D_eht6j")
 states/Run/position = Vector2(484, 89)
 states/Start/position = Vector2(210, 89)
 transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_4rdcl"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_sgdq6"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_1mn88"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_n48gf"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_s038v"), "Idle", "Roll", SubResource("AnimationNodeStateMachineTransition_mc2ad"), "Roll", "Idle", SubResource("AnimationNodeStateMachineTransition_l1ffp")]
-graph_offset = Vector2(34, 26.3392)
+graph_offset = Vector2(36, -61.6608)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lyxak"]
+radius = 12.0
+height = 50.0
 
 [node name="Player" type="CharacterBody2D"]
 light_mask = 2
+collision_layer = 2
 script = ExtResource("1_r3r7w")
-metadata/_edit_lock_ = true
-metadata/_edit_group_ = true
 
 [node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(1, -22)
+position = Vector2(0, -9)
 scale = Vector2(2, 2)
 texture = ExtResource("2_n1y3a")
 hframes = 60
-metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.5708
 shape = SubResource("CapsuleShape2D_gvtep")
-metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Sprite")
@@ -699,25 +700,16 @@ parameters/Idle/blend_position = Vector2(0.1392, -0.281437)
 parameters/Roll/blend_position = Vector2(-0.0974441, 0.283234)
 parameters/Run/blend_position = Vector2(0, 0)
 
-[node name="AnimationTree" type="AnimationTree" parent="AnimationTree"]
-tree_root = SubResource("AnimationNodeStateMachine_u2gsx")
-anim_player = NodePath("../AnimationPlayer")
-parameters/Attack/blend_position = Vector2(-0.0896, 0.217365)
-parameters/Idle/blend_position = Vector2(0.1392, -0.281437)
-parameters/Roll/blend_position = Vector2(-0.0974441, 0.283234)
-parameters/Run/blend_position = Vector2(0, 0)
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -4)
+gizmo_extents = 16.0
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(0, -14)
+[node name="hitbox" parent="Marker2D" instance=ExtResource("4_o3fxu")]
+position = Vector2(30, 0)
+collision_layer = 2
+collision_mask = 8
 
-[node name="SwordHitbox" parent="Node2D" instance=ExtResource("4_o3fxu")]
-light_mask = 0
-visibility_layer = 8
+[node name="CollisionShape2D" parent="Marker2D/hitbox" index="0"]
+shape = SubResource("CapsuleShape2D_lyxak")
 
-[node name="HitboxCollision" parent="Node2D/SwordHitbox" index="0"]
-position = Vector2(-52, 38)
-scale = Vector2(1.05444, 1)
-polygon = PackedVector2Array(63, -64, 58, -55, 58, -23, 63, -15, 74, -12, 84, -16, 88, -27, 89, -40, 88, -56, 81, -65, 72, -67)
-disabled = true
-
-[editable path="Node2D/SwordHitbox"]
+[editable path="Marker2D/hitbox"]

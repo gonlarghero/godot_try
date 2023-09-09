@@ -18,6 +18,7 @@ const FRICTION = 700;
 @onready var animationState = animationTree.get("parameters/playback")
 
 func _ready():
+	get_node("Marker2D/hitbox/CollisionShape2D").disabled = true   
 	borderLimit = get_viewport_rect().size;
 	animationTree.active = true;
 	
