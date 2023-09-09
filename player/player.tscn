@@ -692,6 +692,7 @@ position = Vector2(0, -14)
 rotation = 1.5708
 
 [node name="SwordHitbox" parent="Node2D" instance=ExtResource("4_o3fxu")]
+visibility_layer = 0
 collision_mask = 8
 
 [node name="HitboxCollision" parent="Node2D/SwordHitbox" index="0"]
