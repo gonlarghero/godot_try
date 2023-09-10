@@ -1,7 +1,8 @@
-[gd_scene load_steps=52 format=3 uid="uid://7ng2wdnkjh02"]
+[gd_scene load_steps=57 format=3 uid="uid://7ng2wdnkjh02"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_r3r7w"]
 [ext_resource type="Texture2D" uid="uid://bafe6ngkka1nv" path="res://assets/sprites/character/player/Player.png" id="2_n1y3a"]
+[ext_resource type="Script" path="res://player/swordHitbox.gd" id="4_aeymj"]
 [ext_resource type="PackedScene" uid="uid://e6lwvqjeqnil" path="res://hit-hurt-boxes/hitbox.tscn" id="4_o3fxu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gvtep"]
@@ -434,7 +435,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [48, 46, 47, 48, 49]
+"values": [45, 46, 47, 48, 49]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -600,6 +601,18 @@ animation = &"roll_right"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qtdl0"]
 animation = &"roll_up"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s3q1t"]
+animation = &"roll_down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_mh6a7"]
+animation = &"roll_right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_kd5ui"]
+animation = &"roll_up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1kys2"]
+animation = &"roll_left"
+
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_32ivs"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_t1xhi")
 blend_point_0/pos = Vector2(-1, 0)
@@ -609,6 +622,14 @@ blend_point_2/node = SubResource("AnimationNodeAnimation_t3o3b")
 blend_point_2/pos = Vector2(1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_qtdl0")
 blend_point_3/pos = Vector2(0, -1.1)
+blend_point_4/node = SubResource("AnimationNodeAnimation_s3q1t")
+blend_point_4/pos = Vector2(0, 1.1)
+blend_point_5/node = SubResource("AnimationNodeAnimation_mh6a7")
+blend_point_5/pos = Vector2(1, 0)
+blend_point_6/node = SubResource("AnimationNodeAnimation_kd5ui")
+blend_point_6/pos = Vector2(0, -1.1)
+blend_point_7/node = SubResource("AnimationNodeAnimation_1kys2")
+blend_point_7/pos = Vector2(-1, 0)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
@@ -660,12 +681,12 @@ states/End/position = Vector2(600, 89)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_86xp7")
 states/Idle/position = Vector2(354, 89)
 states/Roll/node = SubResource("AnimationNodeBlendSpace2D_32ivs")
-states/Roll/position = Vector2(354, 12.2222)
+states/Roll/position = Vector2(353.75, 12.2222)
 states/Run/node = SubResource("AnimationNodeBlendSpace2D_eht6j")
 states/Run/position = Vector2(484, 89)
 states/Start/position = Vector2(210, 89)
 transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_4rdcl"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_sgdq6"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_1mn88"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_n48gf"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_s038v"), "Idle", "Roll", SubResource("AnimationNodeStateMachineTransition_mc2ad"), "Roll", "Idle", SubResource("AnimationNodeStateMachineTransition_l1ffp")]
-graph_offset = Vector2(36, -61.6608)
+graph_offset = Vector2(-66, -9.6608)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lyxak"]
 radius = 12.0
@@ -697,7 +718,7 @@ tree_root = SubResource("AnimationNodeStateMachine_u2gsx")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Attack/blend_position = Vector2(-0.0896, 0.217365)
 parameters/Idle/blend_position = Vector2(0.1392, -0.281437)
-parameters/Roll/blend_position = Vector2(-0.0974441, 0.283234)
+parameters/Roll/blend_position = Vector2(-1, -0.00326407)
 parameters/Run/blend_position = Vector2(0, 0)
 
 [node name="Marker2D" type="Marker2D" parent="."]
@@ -708,6 +729,7 @@ gizmo_extents = 16.0
 position = Vector2(30, 0)
 collision_layer = 2
 collision_mask = 8
+script = ExtResource("4_aeymj")
 
 [node name="CollisionShape2D" parent="Marker2D/hitbox" index="0"]
 shape = SubResource("CapsuleShape2D_lyxak")

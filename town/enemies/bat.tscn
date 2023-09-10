@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://g5fwbb522lvx"]
+
+[ext_resource type="Script" path="res://town/enemies/bat.gd" id="1_iehus"]
+[ext_resource type="Texture2D" uid="uid://4ebpgn1g1kjn" path="res://assets/enemies/Bat.png" id="1_kpegf"]
+[ext_resource type="Texture2D" uid="uid://cek4axa1qio3k" path="res://assets/Shadows/SmallShadow.png" id="2_n1n1r"]
+[ext_resource type="PackedScene" uid="uid://bntjcct5xl0ma" path="res://hit-hurt-boxes/hurt_box.tscn" id="3_66qqa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj4gr"]
+atlas = ExtResource("1_kpegf")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4a0t"]
+atlas = ExtResource("1_kpegf")
+region = Rect2(16, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2j0i"]
+atlas = ExtResource("1_kpegf")
+region = Rect2(32, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxuio"]
+atlas = ExtResource("1_kpegf")
+region = Rect2(48, 0, 16, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu40x"]
+atlas = ExtResource("1_kpegf")
+region = Rect2(64, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_re0eh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj4gr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4a0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2j0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxuio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu40x")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0g27o"]
+radius = 4.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7xcha"]
+radius = 3.0
+height = 12.0
+
+[node name="bat" type="CharacterBody2D"]
+collision_mask = 0
+script = ExtResource("1_iehus")
+
+[node name="SpriteBat" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_re0eh")
+animation = &"fly"
+autoplay = "fly"
+frame = 4
+frame_progress = 0.144854
+offset = Vector2(0, -12)
+
+[node name="SpriteShadow" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("2_n1n1r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_0g27o")
+
+[node name="HurtBox" parent="." instance=ExtResource("3_66qqa")]
+collision_layer = 8
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(0, -28)
+scale = Vector2(-5, 2.411)
+shape = SubResource("CapsuleShape2D_7xcha")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+
+[editable path="HurtBox"]

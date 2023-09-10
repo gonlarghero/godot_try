@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bitbxyi7weygg"
+path="res://.godot/imported/Evade.wav-b6efc379b70c2544508b3d290623aa97.sample"
+
+[deps]
+
+source_file="res://assets/enemies/Music and Sounds/Evade.wav"
+dest_files=["res://.godot/imported/Evade.wav-b6efc379b70c2544508b3d290623aa97.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
