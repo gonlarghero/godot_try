@@ -7,7 +7,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _on_hurt_box_area_entered(area):
-	stats.health -= 1
+	stats.health -= area.damage
 	velocity = area.knockback_vector * 120
 	
 func _on_stats_no_health():
