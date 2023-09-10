@@ -10,10 +10,10 @@ enum{
 var borderLimit
 var state = MOVE;
 var roll_vector = Vector2.UP;
-const MAX_SPEED = 200;
-const ROLL_SPEED = 350
-const ACCELERATION = 700;
-const FRICTION = 700;
+@export var MAX_SPEED = 200;
+@export var ROLL_SPEED = 350
+@export var ACCELERATION = 700;
+@export var FRICTION = 700;
 
 @onready var animationPlayer = $AnimationPlayer;
 @onready var animationTree = $AnimationTree;
