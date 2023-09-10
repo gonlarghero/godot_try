@@ -975,3 +975,6 @@ position = Vector2(528, 265)
 
 [node name="bat" parent="." instance=ExtResource("6_gqx4g")]
 position = Vector2(159, 215)
+
+[node name="bat2" parent="." instance=ExtResource("6_gqx4g")]
+position = Vector2(356, 96)

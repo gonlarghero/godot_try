@@ -3,8 +3,7 @@ extends CharacterBody2D
 enum{
 	MOVE,
 	ROLL,
-	ATTACK,
-	GONDA
+	ATTACK
 }
 
 var borderLimit
