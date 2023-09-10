@@ -8,15 +8,16 @@ enum{
 
 var borderLimit
 var state = MOVE;
-const ROLL_SPEED = 270;
-const MAX_SPEED = 200;
-const ACCELERATION = 700;
-const FRICTION = 700;
-var roll_vector = Vector2.UP
+@export var ROLL_SPEED = 270;
+@export var MAX_SPEED = 200;
+@export var ACCELERATION = 700;
+@export var FRICTION = 700;
+var roll_vector = Vector2.DOWN
 
 @onready var animationPlayer = $AnimationPlayer;
 @onready var animationTree = $AnimationTree;
 @onready var animationState = animationTree.get("parameters/playback")
+@onready var swordHitbox = $Node2D/SwordHitbox;
 
 func _ready():
 	borderLimit = get_viewport_rect().size;
@@ -43,6 +44,7 @@ func move_state(delta):
 		animationTree.set("parameters/Attack/blend_position",input_vector);		
 		animationTree.set("parameters/Roll/blend_position",input_vector);
 		roll_vector = input_vector;
+		swordHitbox.knockback_vector = input_vector;
 		animationState.travel("Run");
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta);
 	else:
