@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+const EnemyDeathEffect = preload("res://commons/enemy_death_effect.tscn")
+
 @onready var stats = $Stats
 
 func _physics_process(delta):
@@ -12,3 +14,6 @@ func _on_hurt_box_area_entered(area):
 	
 func _on_stats_no_health():
 	queue_free()
+	var enemyDeathEffect = EnemyDeathEffect.instantiate()
+	get_parent().add_child(enemyDeathEffect);
+	enemyDeathEffect.global_position = global_position;
