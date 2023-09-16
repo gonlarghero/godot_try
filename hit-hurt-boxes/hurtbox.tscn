@@ -1,9 +1,14 @@
-[gd_scene format=3 uid="uid://blqhl6uwcq6ko"]
+[gd_scene load_steps=2 format=3 uid="uid://blqhl6uwcq6ko"]
+
+[ext_resource type="Script" path="res://hit-hurt-boxes/hurtbox.gd" id="1_j6csg"]
 
 [node name="HurtBox" type="Area2D"]
 light_mask = 8
 visibility_layer = 0
 collision_layer = 0
 collision_mask = 0
+script = ExtResource("1_j6csg")
 
 [node name="HurtCollision" type="CollisionPolygon2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
