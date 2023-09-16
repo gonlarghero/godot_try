@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ctd77meanvi2"]
+[gd_scene load_steps=15 format=3 uid="uid://ctd77meanvi2"]
 
 [ext_resource type="Texture2D" uid="uid://bg1mmrycf1hhp" path="res://assets/enemies/Bat.png" id="1_a3q1p"]
 [ext_resource type="Script" path="res://enemies/bat/bat.gd" id="1_c6a0w"]
 [ext_resource type="Texture2D" uid="uid://cjqlkqhkync6f" path="res://assets/shadows/SmallShadow.png" id="2_bcywt"]
 [ext_resource type="PackedScene" uid="uid://blqhl6uwcq6ko" path="res://hit-hurt-boxes/hurtbox.tscn" id="3_i713p"]
 [ext_resource type="PackedScene" uid="uid://bclmebwp5a6me" path="res://stats/stats.tscn" id="5_brpc1"]
+[ext_resource type="PackedScene" uid="uid://bpam1761kos32" path="res://enemies/PlayerDetectionZone.tscn" id="6_v3hem"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pyonp"]
 atlas = ExtResource("1_a3q1p")
@@ -53,6 +54,10 @@ animations = [{
 radius = 3.0
 height = 10.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tnisv"]
+radius = 69.5
+height = 139.0
+
 [node name="bat" type="CharacterBody2D"]
 scale = Vector2(2, 2)
 collision_layer = 16
@@ -85,7 +90,14 @@ polygon = PackedVector2Array(-8, -14.5, -8, -22, -3, -26, 3.5, -26, 8.5, -22.5, 
 [node name="stats" parent="." instance=ExtResource("5_brpc1")]
 max_health = 3
 
+[node name="PlayerDetectionZone" parent="." instance=ExtResource("6_v3hem")]
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+modulate = Color(1, 1, 1, 0.152941)
+shape = SubResource("CapsuleShape2D_tnisv")
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="no_health" from="stats" to="." method="_on_stats_no_health"]
 
 [editable path="HurtBox"]
+[editable path="PlayerDetectionZone"]
