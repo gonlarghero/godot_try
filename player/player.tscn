@@ -683,10 +683,10 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_u2gsx")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Attack/blend_position = Vector2(-0.0896, 0.217365)
-parameters/Idle/blend_position = Vector2(0.0511183, 0.0419161)
-parameters/Roll/blend_position = Vector2(-0.0974441, 0.283234)
-parameters/Run/blend_position = Vector2(0, 0)
+parameters/Attack/blend_position = Vector2(0, 1)
+parameters/Idle/blend_position = Vector2(0, 1)
+parameters/Roll/blend_position = Vector2(0, 1)
+parameters/Run/blend_position = Vector2(0, 1)
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(0, -14)
