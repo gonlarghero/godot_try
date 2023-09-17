@@ -84,6 +84,7 @@ texture = ExtResource("2_n1n1r")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_0g27o")
+disabled = true
 
 [node name="HurtBox" parent="." instance=ExtResource("3_66qqa")]
 collision_layer = 8
@@ -98,6 +99,7 @@ shape = SubResource("CapsuleShape2D_7xcha")
 max_health = 3
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource("6_eqoi8")]
+collision_layer = 1
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 position = Vector2(0, -1)

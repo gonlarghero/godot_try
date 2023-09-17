@@ -20,6 +20,7 @@ var stats = PlayerStats #ta medio peru este singleton
 @onready var animationTree = $AnimationTree;
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var swordHitbox = $Marker2D/hitbox
+@onready var hurtbox = $HurtBox
 
 func _ready():
 	self.stats.connect("no_health", queue_free)
@@ -83,3 +84,5 @@ func roll_ended():
 
 func _on_hurt_box_area_entered(area):
 	stats.health -= 1
+	hurtbox.start_invincibility(0.5)
+	hurtbox.create_hit_effect()

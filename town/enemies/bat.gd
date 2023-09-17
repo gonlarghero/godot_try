@@ -18,6 +18,7 @@ var state = CHASE
 @onready var sprite = $SpriteBat
 @onready var stats = $Stats
 @onready var playerDetectionZone = $PlayerDetectionZone
+@onready var hurtbox = $HurtBox
 
 func _physics_process(delta):	
 	match state:
@@ -45,6 +46,7 @@ func seek_player():
 func _on_hurt_box_area_entered(area):
 	stats.health -= area.damage
 	velocity = area.knockback_vector * 120
+	hurtbox.create_hit_effect()
 	
 func _on_stats_no_health():
 	queue_free()
