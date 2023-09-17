@@ -9,6 +9,8 @@ enum{
 var borderLimit
 var state = MOVE;
 var roll_vector = Vector2.DOWN;
+var stats = PlayerStats #ta medio peru este singleton
+
 @export var MAX_SPEED = 200;
 @export var ROLL_SPEED = 350
 @export var ACCELERATION = 700;
@@ -20,6 +22,7 @@ var roll_vector = Vector2.DOWN;
 @onready var swordHitbox = $Marker2D/hitbox
 
 func _ready():
+	self.stats.connect("no_health", queue_free)
 	get_node("Marker2D/hitbox/CollisionShape2D").disabled = true   
 	borderLimit = get_viewport_rect().size;
 	animationTree.active = true;
@@ -77,3 +80,6 @@ func attack_ended():
 	
 func roll_ended():
 	state = MOVE;
+
+func _on_hurt_box_area_entered(area):
+	stats.health -= 1
