@@ -65,7 +65,7 @@ radius = 63.0079
 radius = 16.0312
 
 [node name="bat" type="CharacterBody2D"]
-collision_mask = 0
+collision_layer = 16
 script = ExtResource("1_iehus")
 
 [node name="SpriteBat" type="AnimatedSprite2D" parent="."]

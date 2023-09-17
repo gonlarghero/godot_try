@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckx81hmu1yrpu"]
+[gd_scene load_steps=12 format=3 uid="uid://ckx81hmu1yrpu"]
 
 [ext_resource type="Texture2D" uid="uid://buxtx8kfrado0" path="res://assets/sprites/town/objects/DirtTileset.png" id="1_je6ds"]
 [ext_resource type="PackedScene" uid="uid://7ng2wdnkjh02" path="res://player/player.tscn" id="2_bfa32"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c2nlpofu04mns" path="res://assets/sprites/town/objects/CliffTileset.png" id="2_qayik"]
 [ext_resource type="PackedScene" uid="uid://c5uh4o7uet2sh" path="res://town/grass/grass.tscn" id="5_pxme2"]
 [ext_resource type="PackedScene" uid="uid://g5fwbb522lvx" path="res://town/enemies/bat.tscn" id="6_gqx4g"]
+[ext_resource type="PackedScene" uid="uid://br24gymrjj1ox" path="res://health_ui.tscn" id="7_mgwj6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uqnca"]
 texture = ExtResource("1_je6ds")
@@ -953,7 +954,7 @@ layer_0/y_sort_enabled = true
 layer_0/tile_data = PackedInt32Array(1245195, 0, 1, 1310731, 0, 2, 1310732, 131072, 2, 1245196, 131072, 1, 1179659, 0, 0, 1179660, 131072, 0, 1310734, 0, 2, 1245198, 0, 0, 1245199, 131072, 0, 1310735, 131072, 2, 1310737, 196608, 2, 1245201, 196608, 1, 1179665, 196608, 0, 1245207, 196608, 2, 1179671, 196608, 1, 1114135, 196608, 1, 1048599, 196608, 1, 983063, 262144, 0, 983064, 65536, 3, 983065, 65536, 3, 983066, 458752, 0, 1048602, 196608, 1, 1114138, 196608, 1, 1179674, 196608, 1, 1245210, 458752, 3, 1245209, 65536, 3, 1245208, 262144, 3, 1179672, 196608, 1, 1114136, 196608, 1, 1048600, 262144, 0, 1048601, 458752, 0, 1114137, 196608, 2, 1179673, 196608, 3, 1179667, 196608, 2, 1114131, 196608, 1, 1048595, 262144, 0, 1048596, 65536, 3, 1048597, 458752, 0, 1114133, 196608, 1, 1179669, 458752, 3, 1179668, 0, 3, 1310739, 0, 3, 1310740, 65536, 3, 1310741, 131072, 3, 655364, 0, 2, 589828, 0, 1, 524292, 0, 0, 524293, 65536, 0, 524294, 65536, 0, 524295, 131072, 0, 589831, 327680, 2, 589832, 65536, 0, 655367, 65536, 2, 655366, 65536, 2, 655365, 524288, 1, 589829, 65536, 1, 589830, 65536, 1, 720905, 65536, 1, 786441, 65536, 1, 786440, 0, 1, 851976, 0, 2, 851977, 65536, 2, 851978, 65536, 2, 851979, 65536, 2, 851980, 65536, 2, 851981, 65536, 2, 851982, 65536, 2, 851983, 131072, 2, 786447, 327680, 4, 786448, 131072, 3, 720911, 131072, 1, 655375, 131072, 1, 655374, 65536, 1, 589838, 65536, 0, 589837, 65536, 0, 589836, 65536, 0, 589835, 65536, 0, 589834, 65536, 0, 589833, 65536, 0, 655369, 65536, 1, 655368, 393216, 1, 720904, 0, 1, 655370, 65536, 1, 655371, 65536, 1, 655372, 65536, 1, 655373, 65536, 1, 786446, 65536, 1, 786445, 65536, 1, 786444, 65536, 1, 720908, 65536, 1, 720907, 65536, 1, 720906, 65536, 1, 786442, 65536, 1, 786443, 65536, 1, 720910, 65536, 1, 720909, 65536, 1, 589839, 131072, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_bfa32")]
-position = Vector2(168, 129)
+position = Vector2(63, 75)
 
 [node name="scene_bush" parent="." instance=ExtResource("2_eorq0")]
 position = Vector2(293, 257)
@@ -978,3 +979,14 @@ position = Vector2(159, 215)
 
 [node name="bat2" parent="." instance=ExtResource("6_gqx4g")]
 position = Vector2(356, 96)
+
+[node name="bat3" parent="." instance=ExtResource("6_gqx4g")]
+position = Vector2(571, 96)
+
+[node name="bat4" parent="." instance=ExtResource("6_gqx4g")]
+position = Vector2(644, 226)
+
+[node name="bat5" parent="." instance=ExtResource("6_gqx4g")]
+position = Vector2(499, 230)
+
+[node name="HealthUI" parent="." instance=ExtResource("7_mgwj6")]
