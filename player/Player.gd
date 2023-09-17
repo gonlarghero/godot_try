@@ -84,5 +84,5 @@ func roll_ended():
 
 func _on_hurt_box_area_entered(area):
 	stats.health -= 1
-	hurtbox.start_invincibility(0.5)
+	hurtbox.start_invincibility(1.0)
 	hurtbox.create_hit_effect()

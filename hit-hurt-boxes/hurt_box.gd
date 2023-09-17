@@ -21,8 +21,8 @@ func _on_timer_timeout():
 	emit_signal("invincibility_ended")
 
 func _on_invincibility_started():
-	set_deferred("monitorable", false)
+	set_deferred("monitoring", false)
 	
 func _on_invincibility_ended():
-	set_deferred("monitorable", true)
+	set_deferred("monitoring", true)
 
