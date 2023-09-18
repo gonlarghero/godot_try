@@ -95,7 +95,7 @@ scale = Vector2(-5, 2.411)
 shape = SubResource("CapsuleShape2D_7xcha")
 
 [node name="Stats" parent="." instance=ExtResource("5_y8w8r")]
-max_health = 3
+max_health = 2
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource("6_eqoi8")]
 collision_layer = 1

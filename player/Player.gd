@@ -3,7 +3,8 @@ extends CharacterBody2D
 enum{
 	MOVE,
 	ROLL,
-	ATTACK
+	ATTACK,
+	RECOVERY
 }
 
 var borderLimit
@@ -37,6 +38,9 @@ func _process(delta):
 			roll_state();
 		ATTACK:
 			attack_state();
+		RECOVERY:
+			recovery_health()
+		
 					
 func move_state(delta):
 	var input_vector = Vector2.ZERO;
@@ -62,6 +66,9 @@ func move_state(delta):
 		
 	if(Input.is_action_just_pressed("Attack")):
 		state = ATTACK;
+		
+	if(Input.is_action_just_pressed("recovery_health")):
+		state = RECOVERY
 	
 	position.x = clamp(position.x, 0, borderLimit.x)
 	position.y = clamp(position.y, 0, borderLimit.y)
@@ -81,6 +88,10 @@ func attack_ended():
 	
 func roll_ended():
 	state = MOVE;
+	
+func recovery_health():
+	PlayerStats.recovery_health()
+	state = MOVE
 
 func _on_hurt_box_area_entered(area):
 	stats.health -= 1
