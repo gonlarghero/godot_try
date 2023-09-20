@@ -8,18 +8,21 @@ enum{
 
 var borderLimit
 var state = MOVE;
+var stats = PlayerStats;
 @export var ROLL_SPEED = 270;
 @export var MAX_SPEED = 200;
 @export var ACCELERATION = 700;
 @export var FRICTION = 700;
 var roll_vector = Vector2.DOWN
 
+@onready var hurtbox = $HurtBox
 @onready var animationPlayer = $AnimationPlayer;
 @onready var animationTree = $AnimationTree;
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var swordHitbox = $Node2D/SwordHitbox;
 
 func _ready():
+	self.stats.connect("no_health", queue_free)
 	borderLimit = get_viewport_rect().size;
 	animationTree.active = true;
 	
@@ -74,3 +77,10 @@ func attack_ended():
 	state = MOVE;
 func roll_ended():
 	state = MOVE;
+
+
+func _on_hurt_box_area_entered(area):
+	stats.health -= 1;
+	hurtbox.start_invincibility(0.8);
+	hurtbox.create_hit_effect(area);
+	

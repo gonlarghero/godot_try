@@ -3,6 +3,7 @@ extends CharacterBody2D
 var knockback = Vector2.ZERO
 var state = IDLE;
 
+@onready var hurtbox = $HurtBox
 @onready var sprite = $Animation
 @onready var stats = $stats;
 @onready var player_detection_zone = $PlayerDetectionZone
@@ -43,6 +44,7 @@ func seek_player():
 func _on_hurt_box_area_entered(area):
 	stats.health -= area.damage;
 	velocity = area.knockback_vector * 120;
+	hurtbox.create_hit_effect(area);
 
 func _on_stats_no_health():
 	var enemy_death_effect = enemy_death_effect_scn.instantiate();
