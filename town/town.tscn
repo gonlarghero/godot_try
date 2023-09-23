@@ -860,6 +860,9 @@ layer_0/tile_data = PackedInt32Array(1245195, 0, 1, 1310731, 0, 2, 1310732, 1310
 [node name="Player" parent="." instance=ExtResource("2_bfa32")]
 position = Vector2(168, 129)
 
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
 [node name="scene_bush" parent="." instance=ExtResource("2_eorq0")]
 position = Vector2(293, 257)
 
@@ -890,12 +893,19 @@ position = Vector2(763, 174)
 [node name="bat4" parent="." instance=ExtResource("6_lfb5r")]
 position = Vector2(381, 94)
 
-[node name="Control" parent="." instance=ExtResource("7_0cfy4")]
-offset_right = 83.0
-offset_bottom = 20.0
-
 [node name="Tree" parent="." instance=ExtResource("8_sq8b5")]
 position = Vector2(310, 443)
 
 [node name="Tree2" parent="." instance=ExtResource("8_sq8b5")]
 position = Vector2(725, 385)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="CanvasLayer" instance=ExtResource("7_0cfy4")]
+offset_right = 83.0
+offset_bottom = 20.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(168, 129)
+process_callback = 0
+limit_smoothed = true

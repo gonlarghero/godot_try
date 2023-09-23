@@ -7,6 +7,7 @@ var state = IDLE;
 @onready var sprite = $Animation
 @onready var stats = $stats;
 @onready var player_detection_zone = $PlayerDetectionZone
+@onready var soft_collision = $SoftCollision
 
 @export var MAX_SPEED = 500;
 @export var ACCELERATION = 200;
@@ -35,6 +36,8 @@ func _physics_process(delta):
 				sprite.flip_h = velocity.x < 0
 			else:
 				state = IDLE	
+	if(soft_collision.is_colliding()):
+		velocity += soft_collision.get_push_vector() * delta * 400; 
 	move_and_slide()
 				
 func seek_player():
