@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://g5fwbb522lvx"]
+[gd_scene load_steps=21 format=3 uid="uid://g5fwbb522lvx"]
 
 [ext_resource type="Script" path="res://town/enemies/bat.gd" id="1_iehus"]
 [ext_resource type="Texture2D" uid="uid://4ebpgn1g1kjn" path="res://assets/enemies/Bat.png" id="1_kpegf"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d2mxhei1f7s6e" path="res://town/enemies/player_detection_zone.tscn" id="6_eqoi8"]
 [ext_resource type="PackedScene" uid="uid://e6lwvqjeqnil" path="res://hit-hurt-boxes/hitbox.tscn" id="7_dqxx8"]
 [ext_resource type="PackedScene" uid="uid://nfiep0s3lrh2" path="res://soft_colission.tscn" id="8_7sglu"]
+[ext_resource type="PackedScene" uid="uid://buioj2mp6lhjb" path="res://town/enemies/wander_controller.tscn" id="9_qhae5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qj4gr"]
 atlas = ExtResource("1_kpegf")
@@ -71,6 +72,8 @@ radius = 6.08276
 [node name="bat" type="CharacterBody2D"]
 collision_layer = 16
 script = ExtResource("1_iehus")
+MIN_WANDER_TIME = 2
+MAX_WANDER_TIME = 5
 
 [node name="SpriteBat" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
@@ -125,6 +128,9 @@ shape = SubResource("CircleShape2D_ok2l4")
 
 [node name="SCCollisionShape2D" parent="SoftColission" index="0"]
 shape = SubResource("CircleShape2D_m5y4l")
+
+[node name="WanderController" parent="." instance=ExtResource("9_qhae5")]
+wander_range = 64
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
