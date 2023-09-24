@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ckx81hmu1yrpu"]
+[gd_scene load_steps=16 format=3 uid="uid://ckx81hmu1yrpu"]
 
 [ext_resource type="Texture2D" uid="uid://buxtx8kfrado0" path="res://assets/sprites/town/objects/DirtTileset.png" id="1_je6ds"]
 [ext_resource type="Script" path="res://town/town.gd" id="1_k3koa"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c5uh4o7uet2sh" path="res://town/grass/grass.tscn" id="5_pxme2"]
 [ext_resource type="PackedScene" uid="uid://g5fwbb522lvx" path="res://town/enemies/bat.tscn" id="6_gqx4g"]
 [ext_resource type="PackedScene" uid="uid://br24gymrjj1ox" path="res://health_ui.tscn" id="7_mgwj6"]
+[ext_resource type="Texture2D" uid="uid://decnqy6vv5k6w" path="res://town/grass/Gonda.png" id="9_so3u7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uqnca"]
 texture = ExtResource("1_je6ds")
@@ -922,6 +923,17 @@ terrain_set_0/terrain_0/name = "Cliff"
 terrain_set_0/terrain_0/color = Color(0.266667, 0.172549, 0.117647, 1)
 sources/0 = SubResource("TileSetAtlasSource_ps0j6")
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_yb4op"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_so3u7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Town" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_k3koa")
@@ -994,8 +1006,27 @@ position = Vector2(528, 265)
 [node name="bat" parent="." instance=ExtResource("6_gqx4g")]
 position = Vector2(159, 215)
 
-[node name="bat2" parent="." instance=ExtResource("6_gqx4g")]
+[node name="bat_gonda" parent="." instance=ExtResource("6_gqx4g")]
 position = Vector2(356, 96)
+MAX_SPEED = 100
+ACCELERATION = 300
+MIN_WANDER_TIME = 5
+MAX_WANDER_TIME = 10
+
+[node name="SpriteBat" parent="bat_gonda" index="0"]
+position = Vector2(-5.5, -3.68098)
+scale = Vector2(0.334, 0.309584)
+sprite_frames = SubResource("SpriteFrames_yb4op")
+animation = &"default"
+autoplay = ""
+frame = 0
+frame_progress = 0.0
+
+[node name="Stats" parent="bat_gonda" index="4"]
+max_health = 10
+
+[node name="hitbox" parent="bat_gonda" index="6"]
+damage = 3
 
 [node name="bat3" parent="." instance=ExtResource("6_gqx4g")]
 position = Vector2(571, 96)
@@ -1009,3 +1040,9 @@ position = Vector2(499, 230)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="HealthUI" parent="CanvasLayer" instance=ExtResource("7_mgwj6")]
+
+[editable path="bat_gonda"]
+[editable path="bat_gonda/HurtBox"]
+[editable path="bat_gonda/PlayerDetectionZone"]
+[editable path="bat_gonda/hitbox"]
+[editable path="bat_gonda/SoftColission"]
