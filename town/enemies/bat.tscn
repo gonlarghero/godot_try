@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://g5fwbb522lvx"]
+[gd_scene load_steps=20 format=3 uid="uid://g5fwbb522lvx"]
 
 [ext_resource type="Script" path="res://town/enemies/bat.gd" id="1_iehus"]
 [ext_resource type="Texture2D" uid="uid://4ebpgn1g1kjn" path="res://assets/enemies/Bat.png" id="1_kpegf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c5lle4tllh2pj" path="res://commons/stats.tscn" id="5_y8w8r"]
 [ext_resource type="PackedScene" uid="uid://d2mxhei1f7s6e" path="res://town/enemies/player_detection_zone.tscn" id="6_eqoi8"]
 [ext_resource type="PackedScene" uid="uid://e6lwvqjeqnil" path="res://hit-hurt-boxes/hitbox.tscn" id="7_dqxx8"]
+[ext_resource type="PackedScene" uid="uid://nfiep0s3lrh2" path="res://soft_colission.tscn" id="8_7sglu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qj4gr"]
 atlas = ExtResource("1_kpegf")
@@ -59,10 +60,13 @@ radius = 3.0
 height = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4jgf6"]
-radius = 63.0079
+radius = 211.038
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ok2l4"]
 radius = 16.0312
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m5y4l"]
+radius = 6.08276
 
 [node name="bat" type="CharacterBody2D"]
 collision_layer = 16
@@ -82,10 +86,12 @@ scale = Vector2(2, 2)
 texture = ExtResource("2_n1n1r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_0g27o")
 
 [node name="HurtBox" parent="." instance=ExtResource("3_66qqa")]
+visible = false
 collision_layer = 8
 collision_mask = 2
 
@@ -106,12 +112,19 @@ shape = SubResource("CircleShape2D_4jgf6")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="hitbox" parent="." instance=ExtResource("7_dqxx8")]
+visible = false
 collision_layer = 16
 collision_mask = 4
 
 [node name="CollisionShape2D" parent="hitbox" index="0"]
+visible = false
 position = Vector2(-1, -28)
 shape = SubResource("CircleShape2D_ok2l4")
+
+[node name="SoftColission" parent="." instance=ExtResource("8_7sglu")]
+
+[node name="SCCollisionShape2D" parent="SoftColission" index="0"]
+shape = SubResource("CircleShape2D_m5y4l")
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="no_health" from="Stats" to="." method="_on_stats_no_health"]
@@ -119,3 +132,4 @@ shape = SubResource("CircleShape2D_ok2l4")
 [editable path="HurtBox"]
 [editable path="PlayerDetectionZone"]
 [editable path="hitbox"]
+[editable path="SoftColission"]
