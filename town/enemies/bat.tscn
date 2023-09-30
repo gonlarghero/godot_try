@@ -115,9 +115,9 @@ shape = SubResource("CircleShape2D_4jgf6")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="hitbox" parent="." instance=ExtResource("7_dqxx8")]
-visible = false
 collision_layer = 16
 collision_mask = 4
+damage = 2
 
 [node name="CollisionShape2D" parent="hitbox" index="0"]
 visible = false

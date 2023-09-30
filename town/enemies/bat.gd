@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var MAX_WANDER_TIME = 3;
 
 const EnemyDeathEffect = preload("res://commons/enemy_death_effect.tscn")
+@export var sound = preload("res://assets/enemies/Music and Sounds/EnemyDie.wav")
 
 enum {
 	IDLE,
@@ -72,6 +73,10 @@ func _on_stats_no_health():
 	var enemyDeathEffect = EnemyDeathEffect.instantiate()
 	get_parent().add_child(enemyDeathEffect);
 	enemyDeathEffect.global_position = global_position;
+	var audioStream = enemyDeathEffect.get_node("AudioStreamPlayer2D")
+	audioStream.stream = sound
+	audioStream.play()
+	
 	
 func pick_random_state(state_list):
 	state_list.shuffle()

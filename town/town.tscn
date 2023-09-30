@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ckx81hmu1yrpu"]
+[gd_scene load_steps=17 format=3 uid="uid://ckx81hmu1yrpu"]
 
 [ext_resource type="Texture2D" uid="uid://buxtx8kfrado0" path="res://assets/sprites/town/objects/DirtTileset.png" id="1_je6ds"]
 [ext_resource type="Script" path="res://town/town.gd" id="1_k3koa"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://g5fwbb522lvx" path="res://town/enemies/bat.tscn" id="6_gqx4g"]
 [ext_resource type="PackedScene" uid="uid://br24gymrjj1ox" path="res://health_ui.tscn" id="7_mgwj6"]
 [ext_resource type="Texture2D" uid="uid://decnqy6vv5k6w" path="res://town/grass/Gonda.png" id="9_so3u7"]
+[ext_resource type="AudioStream" uid="uid://cgxjymr6qto37" path="res://assets/enemies/Music and Sounds/gondaDie.wav" id="9_sw48k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uqnca"]
 texture = ExtResource("1_je6ds")
@@ -1012,6 +1013,7 @@ MAX_SPEED = 100
 ACCELERATION = 300
 MIN_WANDER_TIME = 5
 MAX_WANDER_TIME = 10
+sound = ExtResource("9_sw48k")
 
 [node name="SpriteBat" parent="bat_gonda" index="0"]
 position = Vector2(-5.5, -3.68098)
@@ -1027,6 +1029,9 @@ max_health = 10
 
 [node name="hitbox" parent="bat_gonda" index="6"]
 damage = 3
+
+[node name="CollisionShape2D" parent="bat_gonda/hitbox" index="0"]
+visible = true
 
 [node name="bat3" parent="." instance=ExtResource("6_gqx4g")]
 position = Vector2(571, 96)

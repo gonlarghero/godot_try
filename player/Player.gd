@@ -7,6 +7,8 @@ enum{
 	RECOVERY
 }
 
+const PlayerDeathEffect = preload("res://commons/player_death_effect.tscn")
+
 var borderLimit
 var state = MOVE;
 var roll_vector = Vector2.DOWN;
@@ -24,7 +26,7 @@ var stats = PlayerStats #ta medio peru este singleton
 @onready var hurtbox = $HurtBox
 
 func _ready():
-	self.stats.connect("no_health", queue_free)
+	self.stats.connect("no_health", _kill_player_effect)
 	get_node("Marker2D/hitbox/CollisionShape2D").disabled = true   
 	borderLimit = get_viewport_rect().size;
 	animationTree.active = true;
@@ -94,6 +96,12 @@ func recovery_health():
 	state = MOVE
 
 func _on_hurt_box_area_entered(area):
-	stats.health -= 1
+	stats.health -= area.damage
 	hurtbox.start_invincibility(1.0)
 	hurtbox.create_hit_effect()
+	
+func _kill_player_effect():
+	queue_free()
+	var playerDeathEffect = PlayerDeathEffect.instantiate()
+	get_parent().add_child(playerDeathEffect);
+	playerDeathEffect.global_position = global_position;
