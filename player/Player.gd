@@ -8,6 +8,7 @@ enum{
 }
 
 const PlayerDeathEffect = preload("res://commons/player_death_effect.tscn")
+const PlayerHurtSound = preload("res://player/player_hurt_sound.tscn")
 
 var borderLimit
 var state = MOVE;
@@ -24,6 +25,7 @@ var stats = PlayerStats #ta medio peru este singleton
 @onready var animationState = animationTree.get("parameters/playback")
 @onready var swordHitbox = $Marker2D/hitbox
 @onready var hurtbox = $HurtBox
+@onready var blinkAnimationPlayer = $BlinkAnimationPlayer;
 
 func _ready():
 	self.stats.connect("no_health", _kill_player_effect)
@@ -99,9 +101,17 @@ func _on_hurt_box_area_entered(area):
 	stats.health -= area.damage
 	hurtbox.start_invincibility(1.0)
 	hurtbox.create_hit_effect()
+	var playerHurtSounds = PlayerHurtSound.instantiate()
+	get_tree().current_scene.add_child(playerHurtSounds)
 	
 func _kill_player_effect():
 	queue_free()
 	var playerDeathEffect = PlayerDeathEffect.instantiate()
 	get_parent().add_child(playerDeathEffect);
 	playerDeathEffect.global_position = global_position;
+
+func _on_hurt_box_invincibility_started():
+	blinkAnimationPlayer.play("start")
+
+func _on_hurt_box_invincibility_ended():
+	blinkAnimationPlayer.play("stop")
